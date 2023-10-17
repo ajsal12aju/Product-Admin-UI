@@ -55,6 +55,8 @@ function App() {
           </div>
         </nav>
       </header>
+     {/* the main sections */}
+
       <Login/>
 
 
