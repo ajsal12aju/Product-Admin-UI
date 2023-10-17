@@ -63,7 +63,7 @@ function App() {
           <div className='col-12 font-weight-light'>
             <p className="text-center text-white mb-0 px-4 small">
           Copyright © 
-          <b>2023</b> All rights reserved. Design
+          <b>2023</b> All rights reserved. Design!
 </p>
           </div>
       </footer>
