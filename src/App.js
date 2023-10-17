@@ -22,22 +22,29 @@ function App() {
                 </li>
                 <li className='nav-item'>
                   <a href="" className='nav-link'>
-                  <i class="fa fa-tachometer" aria-hidden="true"></i>
-                  Dashboard
+                  <i class="fa-solid fa-file-lines"></i>
+                  Reports
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className='nav-item'>
                   <a href="" className='nav-link'>
-                  <i class="fa fa-tachometer" aria-hidden="true"></i>
-                  Dashboard
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  Products
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className='nav-item'>
                   <a href="" className='nav-link'>
-                  <i class="fa fa-tachometer" aria-hidden="true"></i>
-                  Dashboard
+                  <i class="fa-solid fa-user"></i>
+                  Accounts
+                  <span className="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li className='nav-item'>
+                  <a href="" className='nav-link'>
+                  <i class="fa-solid fa-gear"></i>
+                  Setting
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
@@ -48,6 +55,18 @@ function App() {
         </nav>
       </header>
       <Login/>
+
+
+      {/* footer */}
+
+      <footer className="tm-footer row tm-mt-small">
+          <div className='col-12 font-weight-light'>
+            <p className="text-center text-white mb-0 px-4 small">
+          Copyright © 
+          <b>2023</b> All rights reserved. Design
+</p>
+          </div>
+      </footer>
     </div>
   );
 }
