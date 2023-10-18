@@ -1,8 +1,10 @@
 
 import './App.css';
-import Login from './Componets/login/Login';
+// import Home from './Componets/home/Home';
+// import Login from './Componets/login/Login';
+import AppRouter from './AppRouter';
 
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (
@@ -59,8 +61,7 @@ function App() {
       </header>
      {/* the main sections */}
 
-      <Login/>
-
+     <AppRouter />
 
       {/* footer */}
 

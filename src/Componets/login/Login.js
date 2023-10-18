@@ -1,12 +1,12 @@
 import React from "react";
 import "./login.css";
- import 'bootstrap/dist/css/bootstrap.css';
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <div>
       <div className="container tm-mt-big tm-mb-big">
-        <div className="row" style={{marginTop:"100px"}}>
+        <div className="row" style={{ marginTop: "100px" }}>
           <div className="col-12 mx-auto tm-login-col">
             <div className="tm-bg-primary-dark tm-block tm-block-h-auto">
               <div className="row">
@@ -24,7 +24,6 @@ function Login() {
                         name="username"
                         className="form-control validate"
                         id="username"
-                        
                         required
                       />
                     </div>
@@ -35,15 +34,26 @@ function Login() {
                         name="password"
                         className="form-control validate"
                         id="password"
-                        
                         required
                       />
                     </div>
                     <div className="form-group mt-4">
-                      <button type="submit" className="btn btn-primary btn-block text-uppercase">Login</button>
+                      <Link to="/home">
+                        <button
+                          type="submit"
+                          className="btn btn-primary btn-block text-uppercase"
+                        >
+                          Login
+                        </button>
+                      </Link>
                     </div>
                     <div className="form-group mt-4">
-                      <button type="submit" className="btn btn-primary btn-block text-uppercase">Forgot Your Password</button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary btn-block text-uppercase"
+                      >
+                        Forgot Your Password
+                      </button>
                     </div>
                   </form>
                 </div>
