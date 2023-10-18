@@ -17,35 +17,35 @@ function App() {
             <div className='collapse navbar-collapse' id='navbarSupportedContent'>
               <ul className='navbar-nav mx-auto h-100'>
                 <li className='nav-item'>
-                  <a href="" className='nav-link'>
-                  <i class="fa fa-tachometer" aria-hidden="true"></i>
-                  Dashboard
+                  <a href="" className='nav-link1'>
+                  <i class="fa fa-tachometer" aria-hidden="true"></i>   
+                    Dashboard
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a href="" className='nav-link'>
+                  <a href="" className='nav-link1'>
                   <i class="fa-solid fa-file-lines"></i>
                   Reports
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a href="" className='nav-link'>
+                  <a href="" className='nav-link1'>
                   <i class="fa-solid fa-cart-shopping"></i>
                   Products
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a href="" className='nav-link'>
+                  <a href="" className='nav-link1'>
                   <i class="fa-solid fa-user"></i>
                   Accounts
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a href="" className='nav-link'>
+                  <a href="" className='nav-link1'>
                   <i class="fa-solid fa-gear"></i>
                   Setting
                   <span className="sr-only">(current)</span>

@@ -5,12 +5,11 @@ import "./login.css";
 function Login() {
   return (
     <div>
-      welcome to login
       <div className="container tm-mt-big tm-mb-big">
-        <div className="row parant-row">
+        <div className="row" style={{marginTop:"100px"}}>
           <div className="col-12 mx-auto tm-login-col">
             <div className="tm-bg-primary-dark tm-block tm-block-h-auto">
-              <div className="row heading">
+              <div className="row">
                 <div className="col-12 mx-auto">
                   <h2 className="tm-block-title mb-4">Welcome to Login</h2>
                 </div>
@@ -25,7 +24,7 @@ function Login() {
                         name="username"
                         className="form-control validate"
                         id="username"
-                        value
+                        
                         required
                       />
                     </div>
@@ -36,12 +35,15 @@ function Login() {
                         name="password"
                         className="form-control validate"
                         id="password"
-                        value
+                        
                         required
                       />
                     </div>
                     <div className="form-group mt-4">
                       <button type="submit" className="btn btn-primary btn-block text-uppercase">Login</button>
+                    </div>
+                    <div className="form-group mt-4">
+                      <button type="submit" className="btn btn-primary btn-block text-uppercase">Forgot Your Password</button>
                     </div>
                   </form>
                 </div>
