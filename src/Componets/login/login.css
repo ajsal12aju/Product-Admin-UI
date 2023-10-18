@@ -1,0 +1,30 @@
+.tm-bg-primary-dark {
+    background-color: #435c70;
+}
+.tm-login-col {
+    max-width: 470px;
+}
+.tm-block-h-auto {
+    min-height: 1px;
+    max-height: none;
+    height: auto;
+}
+.tm-block-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+ }
+ .form-group label {
+    color: #fff;
+    margin-bottom: 10px;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
