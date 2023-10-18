@@ -7,7 +7,8 @@ const Home = () => {
 
   useEffect(() => {
     if (chartRef.current && chartRef.current.chartInstance) {
-      console.log(chartRef.current.chartInstance);
+      // Destroy the chart
+      chartRef.current.chartInstance.destroy();
     }
   }, []);
 
