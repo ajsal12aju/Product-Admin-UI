@@ -4,6 +4,7 @@ import "./home.css"
 import Perfomance from "./Perfomence";
 import Storage from './Storage';
 import Notification from './Notification';
+import OrderList from './OrderList'
 
 function Home() {
   const [chartData, setChartData] = useState({
@@ -17,14 +18,14 @@ function Home() {
         categories: [],
         labels: {
           style: {
-            colors: 'white', // Set x-axis label color to white
+            colors: 'white', 
           },
         },
       },
       yaxis: {
         labels: {
           style: {
-            colors: 'white', // Set y-axis label color to white
+            colors: 'white', 
           },
         },
       },
@@ -123,9 +124,10 @@ function Home() {
 <div className='col-12 d-flex justify-content-center'>
 <div className='card-style1'>
 <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Order List</h2>
-</div>
-</div>
 
+</div>
+</div>
+  
       </div>
     </div>
   );

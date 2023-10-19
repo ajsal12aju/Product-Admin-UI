@@ -1,18 +1,44 @@
-import React from 'react'
-import './home.css'
+import React, { useEffect, useState } from 'react';
 
-function OrderList() {
+function YourComponent() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    
+    fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json')
+      .then((response) => response.json())
+      .then((data) => setData(data.orders))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
+
   return (
-    <div>
-      <div className='tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll'>
-        <table className='class="table'>
-<thead>
-    <tr></tr>
-</thead>
-        </table>
-      </div>
-    </div>
-  )
+    <table>
+      <thead>
+        <tr>
+          <th>ORDER NO</th>
+          <th>STATUS</th>
+          <th>OPERATORS</th>
+          <th>LOCATION</th>
+          <th>DISTANCE</th>
+          <th>START DATE</th>
+          <th>EST DELIVERY DUE</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((order) => (
+          <tr key={order.orderNo}>
+            <td>{order.orderNo}</td>
+            <td>{order.status}</td>
+            <td>{order.operators}</td>
+            <td>{order.location}</td>
+            <td>{order.distance}</td>
+            <td>{order.startDate}</td>
+            <td>{order.deliveryDate}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
-export default OrderList
+export default YourComponent;
