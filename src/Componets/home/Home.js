@@ -1,34 +1,71 @@
-import React, { useEffect, useRef } from 'react';
-import { Chart as ChartJS, ArcElement } from "chart.js";
-import { Pie } from 'react-chartjs-2';
+import React, { useState } from 'react'
+import ReactApexChart from "react-apexcharts"
 
-const Home = () => {
-  const chartRef = useRef(null);
+function Home() {
+    const [state , setState] = useState({
+        series: [{
+            data: data.slice()
+          }],
+          options: {
+            chart: {
+              id: 'realtime',
+              height: 350,
+              type: 'line',
+              animations: {
+                enabled: true,
+                easing: 'linear',
+                dynamicAnimation: {
+                  speed: 1000
+                }
+              },
+              toolbar: {
+                show: false
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            stroke: {
+              curve: 'smooth'
+            },
+            title: {
+              text: 'Dynamic Updating Chart',
+              align: 'left'
+            },
+            markers: {
+              size: 0
+            },
+            xaxis: {
+              type: 'datetime',
+              range: XAXISRANGE,
+            },
+            yaxis: {
+              max: 100
+            },
+            legend: {
+              show: false
+            },
+          },
+        
+        
+        
+    })
+  return (
+    <div>
+      Welcome Back 
+      <ReactApexChart options={state.options} series={state.series} type="line" height={350} />
+    </div>
+  )
+}
 
-  useEffect(() => {
-    if (chartRef.current && chartRef.current.chartInstance) {
-      // Destroy the chart
-      chartRef.current.chartInstance.destroy();
-    }
-  }, []);
+export default Home
 
-  const data = {
-    labels: ['Red', 'Blue', 'Yellow'],
-    datasets: [
-      {
-        data: [300, 50, 100],
-        backgroundColor: ['yellow', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      },
-    ],
-  };
 
-  return (
-    <div>
-      Welcome Back
-      <canvas ref={chartRef} />
-    </div>
-  );
-};
 
-export default Home;
+
+        
+
+  
