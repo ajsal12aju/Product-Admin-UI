@@ -7,7 +7,7 @@ function OrderList() {
       <div className='tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll'>
         <table className='class="table'>
 <thead>
-    
+    <tr></tr>
 </thead>
         </table>
       </div>
