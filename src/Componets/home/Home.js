@@ -3,6 +3,7 @@ import ReactApexChart from 'react-apexcharts';
 import "./home.css"
 import Perfomance from "./Perfomence";
 import Storage from './Storage';
+import Notification from './Notification';
 
 function Home() {
   const [chartData, setChartData] = useState({
@@ -81,11 +82,13 @@ function Home() {
   }, []);
 
   return (
-    <div className='container'>
-      <h2>Welcome Back</h2>
+    <div className='container' style={{marginTop:"50px"}}>
+      
       <div className='row justify-content-center'>
+     
         <div className='col-6'>
           <div className='card-style'>
+          <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Latest Hits</h2>
             <ReactApexChart
               options={chartData.options}
               series={chartData.series}
@@ -98,19 +101,22 @@ function Home() {
 
         <div className='col-6'>
         <div className='card-style'>
+        <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Perfomance</h2>
           <Perfomance />
           </div>
         </div>
 
         <div className='col-6'>
         <div className='card-style'>
+        <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Storage</h2>
           <Storage />
         </div>
         </div>
 
         <div className='col-6 d-flex justify-content-center'>
   <div className='card-style'>
-    <Storage />
+
+     <Notification/>
   </div>
 </div>
 
