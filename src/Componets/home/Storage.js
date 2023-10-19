@@ -9,7 +9,7 @@ function Storage() {
         width: 380,
         type: 'pie',
       },
-      labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+      labels: ['Team A', 'Team B', 'Team C'],
       responsive: [
         {
           breakpoint: 480,
@@ -27,17 +27,19 @@ function Storage() {
   });
 
   useEffect(() => {
-   
     fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json')
       .then((response) => response.json())
       .then((data) => {
-       
         const storageData = data.dasbhoardPage.storage;
-
-       
         setStorage({
           series: [storageData.available, storageData.system, storageData.used],
-          options: storage.options, 
+          options: {
+            ...storage.options,
+            chart: {
+              ...storage.options.chart,
+              colors: ['#FF3367', '#3360FF', '#33FF45', '#FF3367', '#FFEC33'], 
+            },
+          },
         });
       })
       .catch((error) => {

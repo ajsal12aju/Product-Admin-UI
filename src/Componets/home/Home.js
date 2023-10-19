@@ -74,7 +74,7 @@ function Home() {
       </div>
 
       <div>
-
+        <Storage/>
       </div>
     </div>
   );
