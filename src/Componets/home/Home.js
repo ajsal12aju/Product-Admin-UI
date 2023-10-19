@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-import Perfomance from "./Perfomence"
+import Perfomance from "./Perfomence";
+import Storage from './Storage';
 
 function Home() {
   const [chartData, setChartData] = useState({
@@ -70,6 +71,10 @@ function Home() {
        
       <div>
         <Perfomance/>
+      </div>
+
+      <div>
+
       </div>
     </div>
   );

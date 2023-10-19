@@ -101,7 +101,7 @@ function Performance() {
   return (
     <div>
       <h2>Performance</h2>
-      <div style={{ width: "800px" }}>
+      <div style={{ width: "450px" }}>
         <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={380} />
       </div>
     </div>
