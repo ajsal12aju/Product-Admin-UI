@@ -30,7 +30,7 @@ function Notification() {
                 <img className='rounded-circle' src={notification?.pic} alt="" />
               </div>
               <div className='media-body'>
-                <p className='mb-2'> &nbsp; &nbsp; &nbsp; <b>Shopie</b> and <b>Sent you</b> 
+                <p className='mb-2'> &nbsp; &nbsp; &nbsp; <b>{notification?.message}</b> and <b>Sent you</b> 
                  <a style={{textDecoration:"none"}} href="" className='tm-notification-link'>  Products updates</a>.
                 </p>
                 <span className='tm-small tm-text-color-secondary'> &nbsp; &nbsp; &nbsp; 6h ago</span>
