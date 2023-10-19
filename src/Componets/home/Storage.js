@@ -49,6 +49,7 @@ function Storage() {
 
   return (
     <div>
+    <h2>Performance</h2>
       <ReactApexChart options={storage.options} series={storage.series} type="pie" width={380} />
     </div>
   );
