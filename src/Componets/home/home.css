@@ -100,3 +100,18 @@ a {
 .tm-text-color-secondary {
     color: #bdcbd8;
 }
+
+
+/* ============order List ============= */
+
+.table {
+    background-color: #50697f;
+    color: #fff;
+    font-size: 85%;
+    margin-bottom: 0;
+    width: 100%;
+}
+thead {
+    background-color: #486177;
+    color: #fff;
+}
