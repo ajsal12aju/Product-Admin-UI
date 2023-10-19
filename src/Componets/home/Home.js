@@ -120,6 +120,12 @@ function Home() {
   </div>
 </div>
 
+<div className='col-12 d-flex justify-content-center'>
+<div className='card-style1'>
+
+</div>
+</div>
+
       </div>
     </div>
   );
