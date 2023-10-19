@@ -64,8 +64,8 @@ function App() {
      <AppRouter />
 
       {/* footer */}
-
-      <footer className="tm-footer row tm-mt-small">
+<div style={{marginTop:"150px"}}>
+      <footer  className="tm-footer row tm-mt-small">
           <div className='col-12 font-weight-light'>
             <p className="text-center text-white mb-0 px-4 small">
           Copyright © 
@@ -73,6 +73,7 @@ function App() {
 </p>
           </div>
       </footer>
+      </div>
     </div>
   );
 }

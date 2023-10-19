@@ -9,11 +9,13 @@ function Performance() {
     options: {
       chart: {
         type: 'bar',
-        height: 380
+      
+        width: 300,
       },
+      
       plotOptions: {
         bar: {
-          barHeight: '100%',
+          barHeight: '15%',
           distributed: true,
           horizontal: true,
           dataLabels: {
@@ -100,9 +102,10 @@ function Performance() {
 
   return (
     <div>
-      <h2>Performance</h2>
-      <div style={{ width: "450px" }}>
-        <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={380} />
+  
+      <div >
+        <ReactApexChart 
+          width={580} options={chartData.options} series={chartData.series} type="bar" height={350} />
       </div>
     </div>
   );

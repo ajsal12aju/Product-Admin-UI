@@ -50,7 +50,9 @@ function Storage() {
   return (
     <div>
     <h2>Performance</h2>
+    <div className='d-flex justify-content-center'>
       <ReactApexChart options={storage.options} series={storage.series} type="pie" width={380} />
+      </div>
     </div>
   );
 }

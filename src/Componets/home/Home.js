@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
-
+import "./home.css"
 import Perfomance from "./Perfomence";
 import Storage from './Storage';
 
@@ -10,11 +10,22 @@ function Home() {
     options: {
       chart: {
         type: 'line',
-        height: 350,
-        
+        height: 300,
       },
       xaxis: {
         categories: [],
+        labels: {
+          style: {
+            colors: 'white', // Set x-axis label color to white
+          },
+        },
+      },
+      yaxis: {
+        labels: {
+          style: {
+            colors: 'white', // Set y-axis label color to white
+          },
+        },
       },
     },
   });
@@ -23,7 +34,6 @@ function Home() {
     fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json')
       .then((response) => response.json())
       .then((data) => {
-      
         const { featured, latest, months, popular } = data.dasbhoardPage.latestHits;
         setChartData({
           series: [
@@ -43,11 +53,24 @@ function Home() {
           options: {
             chart: {
               type: 'line',
-              height: 350,
-              width: 300,
+              height: 300,
             },
             xaxis: {
               categories: months,
+              labels: {
+                style: {
+                  colors: 'white',
+                  fontSize: '13px',
+                },
+              },
+            },
+            yaxis: {
+              labels: {
+                style: {
+                  colors: 'white',
+                  fontSize: '13px', 
+                },
+              },
             },
           },
         });
@@ -58,28 +81,42 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className='container'>
       <h2>Welcome Back</h2>
-      <div style={{width:"500px", backgroundColor:"red"}}>
-      <ReactApexChart
-        options={chartData.options}
-        series={chartData.series}
-        type="line"
-        height={350}
-      />
-      </div>
-       
-      <div>
-        <Perfomance/>
-      </div>
+      <div className='row justify-content-center'>
+        <div className='col-6'>
+          <div className='card-style'>
+            <ReactApexChart
+              options={chartData.options}
+              series={chartData.series}
+              type="line"
+              height={350}
+              width={580}
+            />
+          </div>
+        </div>
 
-      <div>
-        <Storage/>
+        <div className='col-6'>
+        <div className='card-style'>
+          <Perfomance />
+          </div>
+        </div>
+
+        <div className='col-6'>
+        <div className='card-style'>
+          <Storage />
+        </div>
+        </div>
+
+        <div className='col-6 d-flex justify-content-center'>
+  <div className='card-style'>
+    <Storage />
+  </div>
+</div>
+
       </div>
     </div>
   );
 }
 
 export default Home;
-
-
