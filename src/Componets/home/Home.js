@@ -1,71 +1,72 @@
-import React, { useState } from 'react'
-import ReactApexChart from "react-apexcharts"
+import React, { useState, useEffect } from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 function Home() {
-    const [state , setState] = useState({
-        series: [{
-            data: data.slice()
-          }],
+  const [chartData, setChartData] = useState({
+    series: [],
+    options: {
+      chart: {
+        type: 'line',
+        height: 350,
+        
+      },
+      xaxis: {
+        categories: [],
+      },
+    },
+  });
+
+  useEffect(() => {
+    fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json')
+      .then((response) => response.json())
+      .then((data) => {
+      
+        const { featured, latest, months, popular } = data.dasbhoardPage.latestHits;
+        setChartData({
+          series: [
+            {
+              name: 'Featured',
+              data: featured,
+            },
+            {
+              name: 'Latest',
+              data: latest,
+            },
+            {
+              name: 'Popular',
+              data: popular,
+            },
+          ],
           options: {
             chart: {
-              id: 'realtime',
-              height: 350,
               type: 'line',
-              animations: {
-                enabled: true,
-                easing: 'linear',
-                dynamicAnimation: {
-                  speed: 1000
-                }
-              },
-              toolbar: {
-                show: false
-              },
-              zoom: {
-                enabled: false
-              }
-            },
-            dataLabels: {
-              enabled: false
-            },
-            stroke: {
-              curve: 'smooth'
-            },
-            title: {
-              text: 'Dynamic Updating Chart',
-              align: 'left'
-            },
-            markers: {
-              size: 0
+              height: 350,
+              width: 300,
             },
             xaxis: {
-              type: 'datetime',
-              range: XAXISRANGE,
-            },
-            yaxis: {
-              max: 100
-            },
-            legend: {
-              show: false
+              categories: months,
             },
           },
-        
-        
-        
-    })
+        });
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   return (
     <div>
-      Welcome Back 
-      <ReactApexChart options={state.options} series={state.series} type="line" height={350} />
+      <h2>Welcome Back</h2>
+      <div style={{width:"500px", backgroundColor:"red"}}>
+      <ReactApexChart
+        options={chartData.options}
+        series={chartData.series}
+        type="line"
+        height={350}
+      />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Home
-
-
-
-
-        
-
-  
+export default Home;
