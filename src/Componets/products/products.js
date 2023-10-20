@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './product.css'
+import { Link } from 'react-router-dom';
 
 
 function Products() {
@@ -49,7 +50,7 @@ function Products() {
                         </tbody>
                     </table>
                 </div>
-                <a href="add-product.html" class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
+             <Link to='/addproducts'>   <a href="add-product.html" class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a></Link>
                 <a href="add-product.html" class="btn btn-primary btn-block text-uppercase mb-3">Delete selected Products</a>
             </div>
         </div>

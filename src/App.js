@@ -32,7 +32,7 @@ function App() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav mx-auto h-100">
-              <Link to="/home">
+              <Link style={{textDecoration:"none"}} to="/home">
                 <li className="nav-item">
                   <a href="" className="nav-link1">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
@@ -48,7 +48,7 @@ function App() {
                     <span className="sr-only">(current)</span>
                   </a>
                 </li>
-                <Link to="/products">
+                <Link style={{textDecoration:"none"}} to="/products">
                   <li className="nav-item">
                     <a href="" className="nav-link1">
                       <i class="fa-solid fa-cart-shopping"></i>
@@ -57,7 +57,7 @@ function App() {
                     </a>
                   </li>
                 </Link>
-                <Link to="/accounts">
+                <Link style={{textDecoration:"none"}} to="/accounts">
                 <li className="nav-item">
                   <a href="" className="nav-link1">
                     <i className="fa-solid fa-user"></i>

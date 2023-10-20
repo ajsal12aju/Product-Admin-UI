@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './login.css';
-import { Link, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 function Login() {
   const [data, setData] = useState([]);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json')
@@ -20,13 +21,11 @@ function Login() {
   }, []);
 
   const handleLogin = () => {
-    // Validate the username and password
     if (
       username === data?.accountsPage?.Admin?.email &&
       password === data?.accountsPage?.Admin?.password
     ) {
-      // Proceed to the dashboard page
-      history.push('/home');
+      navigate('/home');
     } else {
       setErrorMessage('Invalid email or password. Please try again.');
     }
@@ -40,7 +39,7 @@ function Login() {
             <div className="tm-bg-primary-dark tm-block tm-block-h-auto">
               <div className="row">
                 <div className="col-12 mx-auto">
-                  <h2 className="tm-block-title mb-4">Welcome to Login</h2>
+                  <h2 className="tm-block-title mb-4 pt-4">Welcome to Login</h2>
                 </div>
               </div>
               <div className="row mt-2">
