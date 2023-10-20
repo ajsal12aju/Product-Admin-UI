@@ -1,26 +1,41 @@
-import React, { useEffect, useState } from 'react'
-
-import "./login.css";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import './login.css';
+import { Link, useHistory } from 'react-router-dom';
 
 function Login() {
-
   const [data, setData] = useState([]);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const history = useHistory();
 
   useEffect(() => {
-   
     fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json')
       .then((response) => response.json())
-      .then((data) => setData(data?.dasbhoardPage?.products))
+      .then((data) => {
+        localStorage.setItem('details', JSON.stringify(data));
+        setData(data);
+      })
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
-  console.log(data, "data3333333333")
+  const handleLogin = () => {
+    // Validate the username and password
+    if (
+      username === data?.accountsPage?.Admin?.email &&
+      password === data?.accountsPage?.Admin?.password
+    ) {
+      // Proceed to the dashboard page
+      history.push('/home');
+    } else {
+      setErrorMessage('Invalid email or password. Please try again.');
+    }
+  };
 
   return (
     <div>
       <div className="container tm-mt-big tm-mb-big">
-        <div className="row" style={{ marginTop: "100px" }}>
+        <div className="row" style={{ marginTop: '100px' }}>
           <div className="col-12 mx-auto tm-login-col">
             <div className="tm-bg-primary-dark tm-block tm-block-h-auto">
               <div className="row">
@@ -30,46 +45,50 @@ function Login() {
               </div>
               <div className="row mt-2">
                 <div className="col-12">
-                  <form action="index.html" method="post" className="">
-                    <div className="form-group">
-                      <label htmlFor="username">User Name</label>
-                      <input
-                        type="text"
-                        name="username"
-                        className="form-control validate"
-                        id="username"
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="password">Password</label>
-                      <input
-                        type="text"
-                        name="password"
-                        className="form-control validate"
-                        id="password"
-                        required
-                      />
-                    </div>
-                    <div className="form-group mt-4">
-                      <Link to="/home">
-                        <button
-                          type="submit"
-                          className="btn btn-primary btn-block text-uppercase"
-                        >
-                          Login
-                        </button>
-                      </Link>
-                    </div>
-                    <div className="form-group mt-4">
-                      <button
-                        type="submit"
-                        className="btn btn-primary btn-block text-uppercase"
-                      >
-                        Forgot Your Password
-                      </button>
-                    </div>
-                  </form>
+                  <div className="form-group">
+                    <label htmlFor="username">User Name</label>
+                    <input
+                      type="text"
+                      name="username"
+                      className="form-control validate"
+                      id="username"
+                      required
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control validate"
+                      id="password"
+                      required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  {errorMessage && (
+                    <div className="alert alert-danger">{errorMessage}</div>
+                  )}
+                  <div className="form-group mt-4">
+                    <button
+                      type="button"
+                      className="btn btn-primary btn-block text-uppercase"
+                      onClick={handleLogin}
+                    >
+                      Login
+                    </button>
+                  </div>
+                  <div className="form-group mt-4">
+                    <button
+                      type="button"
+                      className="btn btn-primary btn-block text-uppercase"
+                    >
+                      Forgot Your Password
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
