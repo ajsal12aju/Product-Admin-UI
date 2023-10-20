@@ -31,8 +31,8 @@ function YourComponent() {
       <tbody>
         {data && data.length > 0 ? (
           data.map((order) => (
-            <tr key={order.orderNo}>
-              <td style={{padding:"20px"}}>{order.orderNo}</td>
+            <tr style={{ fontSize:"14px", fontWeight:"bold"}} key={order.orderNo}>
+              <td style={{padding:"20px", fontSize:"14px", fontWeight:"bold"}}>{order.orderNo}</td>
               <td>{order.status}</td>
               <td>{order.operators}</td>
               <td>{order.location}</td>

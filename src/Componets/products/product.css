@@ -1,0 +1,39 @@
+.tm-content-row {
+    justify-content: space-between;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.tm-block-col {
+    margin-bottom: 30px;
+}
+.tm-block-products {
+    min-height: 725px;
+}
+.tm-bg-primary-dark {
+    background-color: #435c70;
+}
+.tm-product-table-container {
+    max-height: 465px;
+    margin-bottom: 15px;
+    overflow-y: scroll;
+}
+.table {
+    background-color: #50697f;
+    color: #fff;
+    font-size: 85%;
+    margin-bottom: 0;
+    width: 100%;
+}
+thead {
+    background-color: #486177;
+    color: #fff;
+}
+.tm-product-table tr {
+    font-weight: 600;
+}
+.tm-table-small th {
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top: 1px solid #415a70;
+    padding: 15px 25px;
+}
