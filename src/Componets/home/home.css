@@ -103,20 +103,33 @@ a {
 
 
 /* ============order List ============= */
-
-.table {
-    background-color: #50697f;
+.tm-block-col {
+    margin-bottom: 30px;
+}
+.tm-bg-primary-dark {
+    background-color: #435c70;
+}
+.tm-block-scroll {
+    overflow-y: scroll;
+}
+.table1 {
+    background-color: #50697f !important;
     color: #fff;
     font-size: 85%;
     margin-bottom: 0;
     width: 100%;
 }
+.table-head{
+    
+    padding:20px !important;
+        background-color: #486177;
+
+}
 thead {
     background-color: #486177;
     color: #fff;
-}
-.table thead th {
-    border-bottom: 0;
+    padding: 20px;
+
 }
 
 .table thead th {
@@ -128,3 +141,4 @@ thead {
     padding: 15px 25px;
     vertical-align: middle;
 }
+
