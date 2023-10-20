@@ -25,12 +25,12 @@ function Products() {
                     <table className='table1 table-hover tm-table-small tm-product-table'>
                         <thead>
                             <tr>
-                                <th scope="col">PRODUCT NAME</th>
-                                <th scope="col">CATEGORY</th>
-                                <th scope="col">UNIT SOLD</th>
-                                <th scope="col">IN STOCK</th>
-                                <th scope="col">EXPIRE DATE</th>
-                                <th></th>
+                            <th scope="col">&nbsp;</th>
+                                <th scope="col" style={{ paddingLeft: '0' }}>PRODUCT NAME</th>
+                                <th scope="col" style={{ paddingLeft: '0' }}>UNIT SOLD</th>
+                                <th scope="col" style={{ paddingLeft: '0' }}>IN STOCK</th>
+                                <th scope="col" style={{ paddingLeft: '0' }}>EXPIRE DATE</th>
+                                <th>&nbsp;</th>
                                
                             </tr>
                         </thead>
@@ -41,8 +41,8 @@ function Products() {
                                 <td>sdefdg</td>
                                 <td>sdefdg</td>
                                 <td>sdefdg</td>
-                                <td>sdefdg</td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                              
+                                <td style={{fontSize:"17px"}}><i class="fa-solid fa-trash"></i></td>
                                
 
                             </tr>
@@ -53,13 +53,13 @@ function Products() {
                 <a href="add-product.html" class="btn btn-primary btn-block text-uppercase mb-3">Delete selected Products</a>
             </div>
         </div>
-        <div className="col-sm-12 col-md-12 col-lg-3 col-xl-3 tm-block-col">
+        <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
             <div className='tm-bg-primary-dark tm-block tm-block-products'>
                 <div className='tm-product-table-container'>
                     <table className='table1 table-hover tm-table-small tm-product-table'>
                         <thead>
                             <tr>
-                              
+                            <th scope="col">&nbsp;</th>
                                 <th scope="col">CATEGORY</th>
 
                             </tr>
@@ -67,7 +67,10 @@ function Products() {
                         <tbody>
                             <tr>
                                
-                                <td> sdefdg</td>
+                                <td style={{padding:"10px"}}> sdefdg</td>
+                                <td style={{ textAlign: 'end', paddingRight:"20px", fontSize:"17px"  }}>
+  <i className="fa-solid fa-trash"></i>
+</td>
 
                             </tr>
                         </tbody>
