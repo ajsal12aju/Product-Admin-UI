@@ -8,9 +8,9 @@ function Account() {
         <div className='row tm-content-row'>
             <div className='col-12 tm-block-col'>
                 <div className='tm-bg-primary-dark tm-block tm-block-h-auto'>
-                <h2 class="tm-block-title">List of Accounts</h2>
+                <h2 class="tm-block-title pt-4">List of Accounts</h2>
                 <p class="text-white">Accounts</p>
-                <select class="custom-select">
+                <select class="custom-select" style={{backgroundColor:"#50657b"}}>
                 <option value="0">Select account</option>
                 <option value="1">Admin</option>
                 <option value="2">Editor</option>
@@ -23,9 +23,9 @@ function Account() {
 
         {/* pic */}
         <div className="row tm-content-row">
-          <div className="tm-block-col tm-col-avatar">
-            <div className="tm-bg-primary-dark tm-block tm-block-avatar">
-              <h2 className="tm-block-title">Change Avatar</h2>
+          <div className="col-sm-12 col-md-4  tm-block-col tm-col-avatar">
+            <div className=" mb-5 tm-bg-primary-dark tm-block tm-block-avatar">
+              <h2 className="tm-block-title pt-4 ">Change Avatar</h2>
               <div className="tm-avatar-container">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPfO37MK81JIyR1ptwqr_vYO3w4VR-iC2wqQ&usqp=CAU" alt="Avatar" class="tm-avatar img-fluid mb-4" />
                 <a href="#" class="tm-avatar-delete-link">
@@ -37,9 +37,9 @@ function Account() {
               </button>
             </div>
           </div>
-          <div className="tm-block-col tm-col-account-settings">
+          <div className=" col-sm-12 col-md-8 m-block-col tm-col-account-settings">
             <div className="tm-bg-primary-dark tm-block tm-block-settings">
-              <h2 className="tm-block-title">Account Settings</h2>
+              <h2 className="tm-block-title pt-4">Account Settings</h2>
               <form action="" class="tm-signup-form row">
                 <div className="form-group col-lg-6">
                   <label for="name">Account Name</label>
