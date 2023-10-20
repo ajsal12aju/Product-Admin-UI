@@ -2,12 +2,14 @@
     justify-content: space-between;
     margin-left: -20px;
     margin-right: -20px;
+
 }
 .tm-block-col {
     margin-bottom: 30px;
 }
 .tm-block-products {
     min-height: 725px;
+    padding-top: 30px !important;
 }
 .tm-bg-primary-dark {
     background-color: #435c70;
@@ -17,7 +19,7 @@
     margin-bottom: 15px;
     overflow-y: scroll;
 }
-.table {
+.table1 {
     background-color: #50697f;
     color: #fff;
     font-size: 85%;
