@@ -16,7 +16,8 @@ function Products() {
   }, []);
 
   console.log(data, "data")
-
+  console.log(localStorage.getItem("products"), "asdsd")
+ 
   return (
     <div className='container mt-5'>
       <div className="row justify-content-center tm-content-row">

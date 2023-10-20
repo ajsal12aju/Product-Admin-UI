@@ -13,7 +13,7 @@ function AddProduct() {
     const selectedFile = e.target.files[0];
     setImageFile(selectedFile);
   };
-
+  
   const handleAddProduct = () => {
     if (
       !name ||
@@ -27,7 +27,10 @@ function AddProduct() {
       return;
     }
 
-    const product = {
+    const existingProductsJSON = localStorage.getItem('products');
+    const existingProducts = existingProductsJSON ? JSON.parse(existingProductsJSON) : [];
+
+    const newProduct = {
       name,
       description,
       category,
@@ -36,12 +39,17 @@ function AddProduct() {
       imageFile: imageFile.name,
     };
 
-    const productJSON = JSON.stringify(product);
+    existingProducts.push(newProduct);
 
-  
-    localStorage.setItem("newProduct", productJSON);
-
+    localStorage.setItem('products', JSON.stringify(existingProducts));
    
+    setName('');
+    setDescription('');
+    setCategory('');
+    setExpireDate('');
+    setUnitsInStock('');
+    setImageFile(null);
+
     window.location.href = "/products";
   };
 
@@ -128,27 +136,24 @@ function AddProduct() {
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                   <div className="tm-product-img-dummy mx-auto">
-                  {imageFile && (
-  <div className="text-center mt-3 mb-4">
-    <img
-      src={URL.createObjectURL(imageFile)}
-      alt="Product Preview"
-      style={{ width: '400px',height:"200px" }}
-    />
-  </div>
-)}
-                    <i className= {imageFile ? "d-none" : "fas fa-cloud-upload-alt tm-upload-icon"} ></i>
+                    {imageFile && (
+                      <div className="text-center mt-3 mb-4">
+                        <img
+                          src={URL.createObjectURL(imageFile)}
+                          alt="Product Preview"
+                          style={{ width: '400px', height: "200px" }}
+                        />
+                      </div>
+                    )}
+                    <i className={imageFile ? "d-none" : "fas fa-cloud-upload-alt tm-upload-icon"}></i>
                   </div>
                   <div className="custom-file mt-3 mb-3">
                     <input 
-                    
                       type="file"
                       id="fileInput"
                       onChange={handleFileInputChange}
                       style={{ display: "none" }}
                     />
-              
-
                     <label className="btn btn-primary btn-block mx-auto">
                       UPLOAD PRODUCT IMAGE
                       <input
@@ -158,16 +163,6 @@ function AddProduct() {
                         style={{ display: "none" }}
                       />
                     </label>
-
-                    {/* {imageFile && (
-                      <div className="text-center mt-3">
-                        <img
-                          src={URL.createObjectURL(imageFile)}
-                          alt="Product Preview"
-                          style={{ maxWidth: "100%" }}
-                        />
-                      </div>
-                    )} */}
                   </div>
                 </div>
                 <div className="col-12">
