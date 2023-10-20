@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './product.css'
 
-function products() {
+
+function Products() {
 
     const [data, setData] = useState([]);
 
@@ -54,4 +55,4 @@ function products() {
   )
 }
 
-export default products
+export default Products

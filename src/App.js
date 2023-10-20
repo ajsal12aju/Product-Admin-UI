@@ -1,8 +1,10 @@
 
+import { Link } from 'react-router-dom';
 import './App.css';
 // import Home from './Componets/home/Home';
 // import Login from './Componets/login/Login';
 import AppRouter from './AppRouter';
+import { BrowserRouter } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -32,6 +34,7 @@ function App() {
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
+                <Link  to="/products">
                 <li className='nav-item'>
                   <a href="" className='nav-link1'>
                   <i class="fa-solid fa-cart-shopping"></i>
@@ -39,13 +42,22 @@ function App() {
                   <span className="sr-only">(current)</span>
                   </a>
                 </li>
+
+                </Link>
                 <li className='nav-item'>
                   <a href="" className='nav-link1'>
-                  <i class="fa-solid fa-user"></i>
-                  Accounts
-                  <span className="sr-only">(current)</span>
+                  <i className="fa-solid fa-user"></i>
+    Accounts
+    <span className="sr-only">(current)</span>
                   </a>
                 </li>
+              
+              
+                  
+                {/* <Link className='nav-link1'> */}
+   
+  {/* </Link> */}
+               
                 <li className='nav-item'>
                   <a href="" className='nav-link1'>
                   <i class="fa-solid fa-gear"></i>
@@ -60,8 +72,9 @@ function App() {
         </nav>
       </header>
      {/* the main sections */}
-
-     <AppRouter />
+  
+        <AppRouter />
+     
 
       {/* footer */}
 <div style={{marginTop:"150px"}}>
