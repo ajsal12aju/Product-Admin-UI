@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
+
 import "./login.css";
 import { Link } from "react-router-dom";
 
 function Login() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+   
+    fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json')
+      .then((response) => response.json())
+      .then((data) => setData(data?.dasbhoardPage?.products))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
+
+  console.log(data, "data3333333333")
+
   return (
     <div>
       <div className="container tm-mt-big tm-mb-big">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./App.css";
+import React, { useEffect, useState } from 'react'
 // import Home from './Componets/home/Home';
 // import Login from './Componets/login/Login';
 import AppRouter from "./AppRouter";
@@ -8,6 +9,15 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+   
+    fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json')
+      .then((response) => response.json())
+      .then((data) => setData(data?.dasbhoardPage?.products))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
   return (
     <div className="App">
       {/* header */}
