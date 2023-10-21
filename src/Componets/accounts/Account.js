@@ -4,16 +4,20 @@ import './account.css';
 function Account() {
   const [selectedAccount, setSelectedAccount] = useState('Admin');
   const [userData, setUserData] = useState({});
+  const [updatedUserData, setUpdatedUserData] = useState({});
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [confirmationVisible, setConfirmationVisible] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json');
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw  Error('Network response was not ok');
         }
         const data = await response.json();
         setUserData(data.accountsPage[selectedAccount]);
+        setUpdatedUserData(data.accountsPage[selectedAccount]);
       } catch (error) {
         console.error('Error fetching user data: ', error);
       }
@@ -22,9 +26,63 @@ function Account() {
     fetchUserData();
   }, [selectedAccount]);
 
+  useEffect(() => {
+    const userKey = `userdetails_${selectedAccount}`;
+    const savedUserData = JSON.parse(localStorage.getItem(userKey));
+
+    if (savedUserData) {
+      setUpdatedUserData(savedUserData);
+    }
+  }, [selectedAccount]);
+
   const handleAccountSelect = (e) => {
     const selected = e.target.value;
     setSelectedAccount(selected);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleFileUpload = () => {
+    if (selectedFile) {
+      // Assuming you have a server to handle file uploads
+      const formData = new FormData();
+      formData.append('profilePic', selectedFile);
+
+      // Send the formData to your server using fetch or any other method
+      fetch('your-upload-endpoint', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const newProfilePicUrl = data.profilePicUrl;
+
+          // Store the new profile picture URL in local storage
+          const userKey = `userdetails_${selectedAccount}`;
+          const storedUserData = JSON.parse(localStorage.getItem(userKey));
+          storedUserData.profilePic = newProfilePicUrl;
+          localStorage.setItem(userKey, JSON.stringify(storedUserData));
+
+          // Update the updatedUserData with the new profile picture URL
+          setUpdatedUserData({ ...updatedUserData, profilePic: newProfilePicUrl });
+        })
+        .catch((error) => {
+          console.error('Error uploading file: ', error);
+        });
+    }
+  };
+
+  const handleUpdateProfile = () => {
+    const userKey = `userdetails_${selectedAccount}`;
+    localStorage.setItem(userKey, JSON.stringify(updatedUserData));
+    alert('Information Updated Successfully!');
+  };
+
+  const handleFieldChange = (field, value) => {
+    setUpdatedUserData({ ...updatedUserData, [field]: value });
   };
 
   return (
@@ -33,13 +91,13 @@ function Account() {
         <div className="row tm-content-row">
           <div className="col-12 tm-block-col">
             <div className="tm-bg-primary-dark tm-block tm-block-h-auto">
-              <h2 class="tm-block-title pt-4">List of Accounts</h2>
-              <p class="text-white">Accounts</p>
+              <h2 className="tm-block-title pt-4">List of Accounts</h2>
+              <p className="text-white">Accounts</p>
               <select
-                class="custom-select"
-                style={{ backgroundColor: "#50657b" }}
-                onChange={handleAccountSelect}
+                className="custom-select"
+                style={{ backgroundColor: '#50657b' }}
                 value={selectedAccount}
+                onChange={handleAccountSelect}
               >
                 <option value="Admin">Admin</option>
                 <option value="Editor">Editor</option>
@@ -55,14 +113,34 @@ function Account() {
             <div className="mb-5 tm-bg-primary-dark tm-block tm-block-avatar">
               <h2 className="tm-block-title pt-4">Change Avatar</h2>
               <div className="tm-avatar-container">
-                <img src={userData.profilePic} alt="Avatar" className="tm-avatar img-fluid mb-4" />
-                <a href="#" className="tm-avatar-delete-link">
-                  <i className="far fa-trash-alt tm-product-delete-icon"></i>
-                </a>
+                <img
+                  src={updatedUserData.profilePic || userData.profilePic}
+                  alt="Avatar"
+                  className="tm-avatar img-fluid mb-4"
+                  style={{ height: '250px' }}
+                />
+                <div className="tm-avatar-container">
+                  <label
+                    className="tm-upload-label btn btn-primary btn-block text-uppercase"
+                    htmlFor="fileInput"
+                  >
+                    Upload New Photo
+                  </label>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    style={{ display: 'none' }}
+                  />
+                </div>
+                {/* <button
+                  className="btn btn-primary btn-block text-uppercase"
+                  onClick={handleFileUpload}
+                >
+                  Upload
+                </button> */}
               </div>
-              <button className="btn btn-primary btn-block text-uppercase">
-                Upload New Photo
-              </button>
             </div>
           </div>
 
@@ -77,10 +155,15 @@ function Account() {
                     name="name"
                     type="text"
                     className="form-control validate"
-                    value={userData.name || ""}
-                    readOnly
+                    value={
+                      localStorage[`userdetails_${selectedAccount}`]?.name
+                        ? localStorage[`userdetails_${selectedAccount}`].name
+                        : updatedUserData.name
+                    }
+                    onChange={(e) => handleFieldChange('name', e.target.value)}
                   />
                 </div>
+
                 <div className="form-group col-lg-6">
                   <label htmlFor="email">Account Email</label>
                   <input
@@ -88,8 +171,8 @@ function Account() {
                     name="email"
                     type="email"
                     className="form-control validate"
-                    value={userData.email || ""}
-                    readOnly
+                    value={updatedUserData.email || ''}
+                    onChange={(e) => handleFieldChange('email', e.target.value)}
                   />
                 </div>
                 <div className="form-group col-lg-6">
@@ -99,8 +182,8 @@ function Account() {
                     name="password"
                     type="password"
                     className="form-control validate"
-                    value={userData.password || ""}
-                    readOnly
+                    value={updatedUserData.password || ''}
+                    onChange={(e) => handleFieldChange('password', e.target.value)}
                   />
                 </div>
                 <div className="form-group col-lg-6">
@@ -110,18 +193,25 @@ function Account() {
                     name="phone"
                     type="tel"
                     className="form-control validate"
-                    value={userData.phone || ""}
-                    readOnly
+                    value={updatedUserData.phone || ''}
+                    onChange={(e) => handleFieldChange('phone', e.target.value)}
                   />
                 </div>
                 <div className="form-group col-lg-6">
                   <label className="tm-hide-sm">&nbsp;</label>
-                  <button type="submit" className="btn btn-primary btn-block text-uppercase">
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-block text-uppercase"
+                    onClick={handleUpdateProfile}
+                  >
                     Update Your Profile
                   </button>
                 </div>
                 <div className="col-12">
-                  <button type="submit" className="btn btn-primary btn-block text-uppercase">
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-block text-uppercase"
+                  >
                     Delete Your Account
                   </button>
                 </div>

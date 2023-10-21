@@ -4,6 +4,11 @@ import React, { useEffect, useState } from 'react'
 // import Home from './Componets/home/Home';
 // import Login from './Componets/login/Login';
 import AppRouter from "./AppRouter";
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+// import { Link } from 'react-router-dom';
 import { BrowserRouter } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -22,7 +27,52 @@ function App() {
     <div className="App">
       {/* header */}
       <header>
-        <nav className="navbar navbar-expand-xl">
+        <div style={{backgroundColor:"#567086"}} >
+      <Navbar expand="lg" className="">
+      <Container>
+        <Navbar.Brand href="#home">Product Admin</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto nav-contentes" >
+          <Link to="/home" className="nav-link1">
+              <Nav.Link href="#home">
+                <i className="fa fa-tachometer" aria-hidden="true"></i><br/>
+                Dashboard
+              </Nav.Link>
+            </Link>
+            <Link to="/reports" className="nav-link1">
+              <Nav.Link href="#link">
+                <i className="fa-solid fa-file-lines"></i><br/>
+                Reports
+              </Nav.Link>
+            </Link>
+            <Link to="/products" className="nav-link1">
+              <Nav.Link href="#link">
+              <i class="fa-solid fa-cart-shopping"></i><br/>
+                Products
+              </Nav.Link>
+            </Link>
+           
+      
+          
+            <Link to="/accounts" className="nav-link1">
+              <Nav.Link href="#home">
+                <i className="fa-solid fa-user"></i><br/>
+                Accounts
+              </Nav.Link>
+            </Link>
+            <Link to="/settings" className="nav-link1">
+              <Nav.Link href="#home">
+                <i className="fa-solid fa-gear"></i><br/>
+                Setting
+              </Nav.Link>
+            </Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+    </div>
+        {/* <nav className="navbar navbar-expand-xl">
           <div className="container h-100">
             <a href="navbar-brand">
               <h1 className="tm-site-title mb-0">Product Admin</h1>
@@ -66,10 +116,7 @@ function App() {
                   </a>
                 </li>
                 </Link>
-                {/* <Link className='nav-link1'> */}
-
-                {/* </Link> */}
-
+               
                 <li className="nav-item">
                   <a href="" className="nav-link1">
                     <i class="fa-solid fa-gear"></i>
@@ -80,7 +127,7 @@ function App() {
               </ul>
             </div>
           </div>
-        </nav>
+        </nav> */}
       </header>
       {/* the main sections */}
 

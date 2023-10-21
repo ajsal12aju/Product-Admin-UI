@@ -10,20 +10,14 @@ function AddCategory({ modalIsOpen, setModalIsOpen }) {
 
   const handleAddCategory = () => {
     if (category) {
-      // Get existing categories from local storage (if any)
+      
       const existingCategoriesJSON = localStorage.getItem('categories');
       const existingCategories = existingCategoriesJSON ? JSON.parse(existingCategoriesJSON) : [];
-
-      // Add the new category to the list
       existingCategories.push(category);
-
-      // Save the updated list back to local storage
       localStorage.setItem('categories', JSON.stringify(existingCategories));
-
-      // Clear the input field
       setCategory('');
 
-      // Close the modal
+     
       setModalIsOpen(false);
     }
   };
@@ -31,7 +25,7 @@ function AddCategory({ modalIsOpen, setModalIsOpen }) {
   const customStyles = {
     content: {
       width: '50%',
-      height: '60%',
+      height: '38%',
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',

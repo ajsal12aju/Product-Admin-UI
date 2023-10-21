@@ -141,4 +141,17 @@ thead {
     padding: 15px 25px;
     vertical-align: middle;
 }
+.chart-container {
+  
+    height: 350px;
+    width:580px !important;
+  }
 
+@media (max-width: 500px) {
+    .card-style {
+        width: 348px;
+    }
+    .chart-container {
+        width: 350px !important;
+      }
+}

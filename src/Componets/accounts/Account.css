@@ -103,3 +103,16 @@
 .form-group {
     margin-bottom: 15px;
 }
+
+.tm-upload-label {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .tm-upload-label:hover {
+    background-color: #0056b3;
+  }
+  

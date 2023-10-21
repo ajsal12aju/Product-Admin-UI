@@ -7,27 +7,35 @@ function Products() {
   const [data, setData] = useState([]);
   const [products, setProducts] = useState([]);
   const [selectedProductIndices, setSelectedProductIndices] = useState([]);
-  const [categories, setCategories] = useState([]); // New state for categories
+  const [categories, setCategories] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
-    // ... Your existing useEffect code for fetching and loading products ...
 
     const storedProductsJSON = localStorage.getItem('products');
     const storedProducts = storedProductsJSON ? JSON.parse(storedProductsJSON) : [];
     setProducts(storedProducts);
 
-    const storedCategoriesJSON = localStorage.getItem('categories'); // Retrieve categories
+    const storedCategoriesJSON = localStorage.getItem('categories'); 
     const storedCategories = storedCategoriesJSON ? JSON.parse(storedCategoriesJSON) : [];
-    setCategories(storedCategories); // Set categories
+    setCategories(storedCategories); 
   }, []);
+
 
   const handleDeleteProduct = () => {
     const updatedProducts = products.filter((_, index) => !selectedProductIndices.includes(index));
     setProducts(updatedProducts);
     localStorage.setItem('products', JSON.stringify(updatedProducts));
-    setSelectedProductIndices([]);
+    setSelectedProductIndices([]); 
   };
+  
+  const handleDeleteProductSingle = (index) =>{
+    const updatedCategories = [...products];
+    updatedCategories.splice(index, 1);
+    setProducts(updatedCategories);
+
+    localStorage.setItem('products', JSON.stringify(updatedCategories));
+  }
 
   const toggleProductSelection = (index) => {
     if (selectedProductIndices.includes(index)) {
@@ -89,7 +97,7 @@ function Products() {
                       <td style={{ fontSize: '17px' }}>
                         <i
                           className="fa-solid fa-trash"
-                          onClick={() => handleDeleteProduct(index)}
+                          onClick={() => handleDeleteProductSingle(index)}
                           style={{ cursor: 'pointer' }}
                         ></i>
                       </td>
@@ -122,7 +130,7 @@ function Products() {
                   </tr>
                 </thead>
                 <tbody>
-                  {categories.map((category, index) => ( // Map and display categories
+                  {categories.map((category, index) => ( 
                     <tr key={index}>
                       <td style={{ padding:"10px", paddingLeft:"20px", margin:"5px" ,}}>{category}</td>
                       <td

@@ -105,7 +105,7 @@ function Performance() {
   
       <div >
         <ReactApexChart 
-          width={580} options={chartData.options} series={chartData.series} type="bar" height={350} />
+        className="chart-container"    options={chartData.options} series={chartData.series} type="bar" />
       </div>
     </div>
   );

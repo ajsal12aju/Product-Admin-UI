@@ -87,34 +87,35 @@ function Home() {
       
       <div className='row justify-content-center'>
      
-        <div className='col-6'>
+        <div className='col-sm-12 col-md-12 col-lg-6'>
           <div className='card-style'>
           <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Latest Hits</h2>
             <ReactApexChart
+              className="chart-container"
               options={chartData.options}
               series={chartData.series}
               type="line"
-              height={350}
-              width={580}
+              // height={350}
+              // width={580}
             />
           </div>
         </div>
 
-        <div className='col-6'>
+        <div className='col-sm-12 col-md-12 col-lg-6'>
         <div className='card-style'>
         <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Perfomance</h2>
           <Perfomance />
           </div>
         </div>
 
-        <div className='col-6'>
+        <div className='col-sm-12 col-md-12 col-lg-6'>
         <div className='card-style'>
         <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Storage</h2>
           <Storage />
         </div>
         </div>
 
-        <div className='col-6 d-flex justify-content-center'>
+        <div className='col-sm-12 col-md-12 col-lg-6 d-flex justify-content-center'>
   <div className='card-style'>
 
      <Notification/>
