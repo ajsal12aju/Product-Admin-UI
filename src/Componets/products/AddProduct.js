@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./product.css";
+import { useLocation } from 'react-router-dom';
 
-function AddProduct() {
+function AddProduct(props) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [expireDate, setExpireDate] = useState("");
   const [unitsInStock, setUnitsInStock] = useState("");
   const [imageFile, setImageFile] = useState(null);
+
+
+
+  const location = useLocation();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    if (location.state && location.state.product) {
+      const parsedProduct = JSON.parse(location.state.product);
+      setProduct(parsedProduct);
+    }
+  }, [location.state]);
 
   const handleFileInputChange = (e) => {
     const selectedFile = e.target.files[0];
