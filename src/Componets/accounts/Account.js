@@ -13,7 +13,7 @@ function Account() {
       try {
         const response = await fetch('https://reactmusicplayer-ab9e4.firebaseio.com/project-data.json');
         if (!response.ok) {
-          throw  Error('Network response was not ok');
+          throw new Error('Network response was not ok');
         }
         const data = await response.json();
         setUserData(data.accountsPage[selectedAccount]);
@@ -47,27 +47,34 @@ function Account() {
 
   const handleFileUpload = () => {
     if (selectedFile) {
-      // Assuming you have a server to handle file uploads
       const formData = new FormData();
       formData.append('profilePic', selectedFile);
 
-      // Send the formData to your server using fetch or any other method
+
       fetch('your-upload-endpoint', {
         method: 'POST',
         body: formData,
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('File upload failed');
+          }
+          return response.json();
+        })
         .then((data) => {
           const newProfilePicUrl = data.profilePicUrl;
-
-          // Store the new profile picture URL in local storage
+    
           const userKey = `userdetails_${selectedAccount}`;
           const storedUserData = JSON.parse(localStorage.getItem(userKey));
-          storedUserData.profilePic = newProfilePicUrl;
-          localStorage.setItem(userKey, JSON.stringify(storedUserData));
-
-          // Update the updatedUserData with the new profile picture URL
-          setUpdatedUserData({ ...updatedUserData, profilePic: newProfilePicUrl });
+    
+          if (storedUserData) {
+            storedUserData.profilePic = newProfilePicUrl;
+            localStorage.setItem(userKey, JSON.stringify(storedUserData));
+    
+            console.log('New Profile Pic URL:', newProfilePicUrl); 
+    
+            setUpdatedUserData({ ...updatedUserData, profilePic: newProfilePicUrl });
+          }
         })
         .catch((error) => {
           console.error('Error uploading file: ', error);
@@ -77,8 +84,14 @@ function Account() {
 
   const handleUpdateProfile = () => {
     const userKey = `userdetails_${selectedAccount}`;
-    localStorage.setItem(userKey, JSON.stringify(updatedUserData));
-    alert('Information Updated Successfully!');
+    const storedUserData = JSON.parse(localStorage.getItem(userKey));
+
+    if (storedUserData) {
+      const updatedData = { ...storedUserData, ...updatedUserData };
+      localStorage.setItem(userKey, JSON.stringify(updatedData));
+      setUpdatedUserData(updatedData);
+      alert('Information Updated Successfully!');
+    }
   };
 
   const handleFieldChange = (field, value) => {
@@ -113,18 +126,13 @@ function Account() {
             <div className="mb-5 tm-bg-primary-dark tm-block tm-block-avatar">
               <h2 className="tm-block-title pt-4">Change Avatar</h2>
               <div className="tm-avatar-container">
-                <img
-                  src={updatedUserData.profilePic || userData.profilePic}
-                  alt="Avatar"
-                  className="tm-avatar img-fluid mb-4"
-                  style={{ height: '250px' }}
-                />
+              
                 <div className="tm-avatar-container">
                   <label
                     className="tm-upload-label btn btn-primary btn-block text-uppercase"
                     htmlFor="fileInput"
                   >
-                    Upload New Photo
+                    Add New Photo
                   </label>
                   <input
                     type="file"
@@ -133,13 +141,20 @@ function Account() {
                     onChange={handleFileChange}
                     style={{ display: 'none' }}
                   />
+                    <img
+                  src={updatedUserData.profilePic || userData.profilePic}
+                  alt="Avatar"
+                  className="tm-avatar img-fluid mb-4"
+                  style={{ height: '250px' }}
+                />
                 </div>
-                {/* <button
-                  className="btn btn-primary btn-block text-uppercase"
-                  onClick={handleFileUpload}
-                >
-                  Upload
-                </button> */}
+                <button
+                    type="button"
+                    className="btn btn-primary btn-block text-uppercase"
+                    onClick={handleFileUpload}
+                  >
+                    Update Profile Pic
+                  </button>
               </div>
             </div>
           </div>

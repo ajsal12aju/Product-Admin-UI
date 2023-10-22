@@ -16,15 +16,19 @@ function Login() {
       .then((data) => {
         localStorage.setItem('details', JSON.stringify(data));
         setData(data);
+        // localStorage.setItem('user_email', JSON.stringify(data?.accountsPage?.Admin?.email));
       })
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
+console.log(localStorage.getItem('user_email'), "email cameee")
 
   const handleLogin = () => {
     if (
       username === data?.accountsPage?.Admin?.email &&
       password === data?.accountsPage?.Admin?.password
     ) {
+      localStorage.setItem('user_email', JSON.stringify(data?.accountsPage?.Admin?.email));
       navigate('/home');
     } else {
       setErrorMessage('Invalid email or password. Please try again.');

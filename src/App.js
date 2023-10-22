@@ -23,6 +23,13 @@ function App() {
       .then((data) => setData(data?.dasbhoardPage?.products))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
+  const role =  localStorage.getItem('user_email')
+  console.log(role, "role isssssssssss");
+  const cleara = ()=>{
+    localStorage.clear('user_email')
+  }
+
   return (
     <div className="App">
       {/* header */}
@@ -33,22 +40,22 @@ function App() {
         <Navbar.Brand href="#home">Product Admin</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto nav-contentes" >
+          <Nav className={role ?"d-none":"me-auto nav-contentes"}  >
           <Link to="/home" className="nav-link1">
               <Nav.Link href="#home">
-                <i className="fa fa-tachometer" aria-hidden="true"></i><br/>
+                <i className="fa fa-tachometer nav-icons" aria-hidden="true"></i><br/>
                 Dashboard
               </Nav.Link>
             </Link>
             <Link to="/reports" className="nav-link1">
               <Nav.Link href="#link">
-                <i className="fa-solid fa-file-lines"></i><br/>
+                <i className="fa-solid fa-file-lines nav-icons"></i><br/>
                 Reports
               </Nav.Link>
             </Link>
             <Link to="/products" className="nav-link1">
               <Nav.Link href="#link">
-              <i class="fa-solid fa-cart-shopping"></i><br/>
+              <i class="fa-solid fa-cart-shopping nav-icons"></i><br/>
                 Products
               </Nav.Link>
             </Link>
@@ -57,77 +64,25 @@ function App() {
           
             <Link to="/accounts" className="nav-link1">
               <Nav.Link href="#home">
-                <i className="fa-solid fa-user"></i><br/>
+                <i className="fa-solid fa-user nav-icons"></i><br/>
                 Accounts
               </Nav.Link>
             </Link>
             <Link to="/settings" className="nav-link1">
               <Nav.Link href="#home">
-                <i className="fa-solid fa-gear"></i><br/>
-                Setting
+                <i className="fa-solid fa-gear nav-icons"></i><br/>
+                Settings
               </Nav.Link>
             </Link>
           </Nav>
+          <Link to='/'>
+          <p onClick={cleara()} className="logout">Logout</p>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
     </div>
-        {/* <nav className="navbar navbar-expand-xl">
-          <div className="container h-100">
-            <a href="navbar-brand">
-              <h1 className="tm-site-title mb-0">Product Admin</h1>
-            </a>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav mx-auto h-100">
-              <Link style={{textDecoration:"none"}} to="/home">
-                <li className="nav-item">
-                  <a href="" className="nav-link1">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>
-                    Dashboard
-                    <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-                </Link>
-                <li className="nav-item">
-                  <a href="" className="nav-link1">
-                    <i class="fa-solid fa-file-lines"></i>
-                    Reports
-                    <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-                <Link style={{textDecoration:"none"}} to="/products">
-                  <li className="nav-item">
-                    <a href="" className="nav-link1">
-                      <i class="fa-solid fa-cart-shopping"></i>
-                      Products
-                      <span className="sr-only">(current)</span>
-                    </a>
-                  </li>
-                </Link>
-                <Link style={{textDecoration:"none"}} to="/accounts">
-                <li className="nav-item">
-                  <a href="" className="nav-link1">
-                    <i className="fa-solid fa-user"></i>
-                    Accounts
-                    <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-                </Link>
-               
-                <li className="nav-item">
-                  <a href="" className="nav-link1">
-                    <i class="fa-solid fa-gear"></i>
-                    Setting
-                    <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav> */}
+       
       </header>
       {/* the main sections */}
 
