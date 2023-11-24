@@ -124,7 +124,7 @@ function Home() {
 
 <div className='col-12 d-flex justify-content-center'>
 <div className='card-style1'>
-<h2 style={{marginLeft:"20px"}} className='tm-block-title'>Order List</h2> 
+<h2 style={{marginLeft:"20px"}} className='tm-block-title'>Orderd  List</h2> 
  <OrderList/>
 
 </div>
