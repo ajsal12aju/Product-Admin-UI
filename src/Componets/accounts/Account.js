@@ -219,7 +219,7 @@ function Account() {
                     className="btn btn-primary btn-block text-uppercase"
                     onClick={handleUpdateProfile}
                   >
-                    Update Your Profile
+                    Update Your Profile Details
                   </button>
                 </div>
                 <div className="col-12">
