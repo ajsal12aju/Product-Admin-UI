@@ -180,7 +180,7 @@ function Account() {
                 </div>
 
                 <div className="form-group col-lg-6">
-                  <label htmlFor="email">Account Email</label>
+                  <label htmlFor="email">Account Email setting</label>
                   <input
                     id="email"
                     name="email"
