@@ -219,7 +219,7 @@ function Account() {
                     className="btn btn-primary btn-block text-uppercase"
                     onClick={handleUpdateProfile}
                   >
-                  profile updation DONE 
+                  profile updations 
                   </button>
                 </div>
                 <div className="col-12">
@@ -227,7 +227,7 @@ function Account() {
                     type="submit"
                     className="btn btn-primary btn-block text-uppercase"
                   >
-                    Delete Your Account
+                    Delete Your Accounts
                   </button>
                 </div>
               </form>
