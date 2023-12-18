@@ -153,7 +153,7 @@ function Account() {
                     className="btn btn-primary btn-block text-uppercase"
                     onClick={handleFileUpload}
                   >
-                    Update Profile Pic
+                    Update Profile
                   </button>
               </div>
             </div>
@@ -219,7 +219,7 @@ function Account() {
                     className="btn btn-primary btn-block text-uppercase"
                     onClick={handleUpdateProfile}
                   >
-                  profile updations 
+                  profile update
                   </button>
                 </div>
                 <div className="col-12">
