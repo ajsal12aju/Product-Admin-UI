@@ -153,7 +153,7 @@ function Account() {
                     className="btn btn-primary btn-block text-uppercase"
                     onClick={handleFileUpload}
                   >
-                    Update Profile
+                    Update Profile details
                   </button>
               </div>
             </div>
@@ -164,7 +164,7 @@ function Account() {
               <h2 className="tm-block-title pt-4">Account Settings</h2>
               <form action="" className="tm-signup-form row">
                 <div className="form-group col-lg-6">
-                  <label htmlFor="name">Account Name</label>
+                  <label htmlFor="name">Account full Name </label>
                   <input
                     id="name"
                     name="name"
