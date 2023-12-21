@@ -202,7 +202,7 @@ function Account() {
                   />
                 </div>
                 <div className="form-group col-lg-6">
-                  <label htmlFor="phone">Phone</label>
+                  <label htmlFor="phone">Phone number</label>
                   <input
                     id="phone"
                     name="phone"
