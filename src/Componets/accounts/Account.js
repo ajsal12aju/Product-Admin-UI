@@ -191,7 +191,7 @@ function Account() {
                   />
                 </div>
                 <div className="form-group col-lg-6">
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Enter Password</label>
                   <input
                     id="password"
                     name="password"
@@ -202,7 +202,7 @@ function Account() {
                   />
                 </div>
                 <div className="form-group col-lg-6">
-                  <label htmlFor="phone">contact number</label>
+                  <label htmlFor="phone">Number</label>
                   <input
                     id="phone"
                     name="phone"
@@ -219,7 +219,7 @@ function Account() {
                     className="btn btn-primary btn-block text-uppercase"
                     onClick={handleUpdateProfile}
                   >
-                  profile update
+                  Profile update
                   </button>
                 </div>
                 <div className="col-12">
