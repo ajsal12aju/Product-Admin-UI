@@ -227,7 +227,7 @@ function Account() {
                     type="submit"
                     className="btn btn-primary btn-block text-uppercase"
                   >
-                    Delete Your Account
+                    Delete Your Account add
                   </button>
                 </div>
               </form>
