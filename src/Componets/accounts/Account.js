@@ -180,7 +180,7 @@ function Account() {
                 </div>
 
                 <div className="form-group col-lg-6">
-                  <label htmlFor="email">Account Email setting</label>
+                  <label htmlFor="email">Account Email</label>
                   <input
                     id="email"
                     name="email"
@@ -202,7 +202,7 @@ function Account() {
                   />
                 </div>
                 <div className="form-group col-lg-6">
-                  <label htmlFor="phone">Number</label>
+                  <label htmlFor="phone">Numbers</label>
                   <input
                     id="phone"
                     name="phone"
@@ -227,7 +227,7 @@ function Account() {
                     type="submit"
                     className="btn btn-primary btn-block text-uppercase"
                   >
-                    Delete Your Account add
+                    Delete Your Account
                   </button>
                 </div>
               </form>
