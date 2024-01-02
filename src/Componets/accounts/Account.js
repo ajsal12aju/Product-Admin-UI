@@ -132,7 +132,7 @@ function Account() {
                     className="tm-upload-label btn btn-primary btn-block text-uppercase"
                     htmlFor="fileInput"
                   >
-                    Add New Photo
+                  Add Your picupdates                   
                   </label>
                   <input
                     type="file"
