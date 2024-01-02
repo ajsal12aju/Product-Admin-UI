@@ -153,7 +153,7 @@ function Account() {
                     className="btn btn-primary btn-block text-uppercase"
                     onClick={handleFileUpload}
                   >
-                    Update Profile details
+                    Update Profile details updated
                   </button>
               </div>
             </div>
@@ -191,7 +191,7 @@ function Account() {
                   />
                 </div>
                 <div className="form-group col-lg-6">
-                  <label htmlFor="password">Enter Password</label>
+                  <label htmlFor="password">Enter your Password</label>
                   <input
                     id="password"
                     name="password"
