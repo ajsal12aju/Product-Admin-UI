@@ -104,3 +104,68 @@ console.log(localStorage.getItem('user_email'), "email cameee")
 }
 
 export default Login;
+
+
+///socket.js
+
+let io;
+module.exports = {
+  init: (server) => {
+    io = require("socket.io")(server, {
+      cors: {
+        origin: "*",
+      },
+    });
+    return io;
+  },
+  getIO: () => {
+    if (!io) {
+      throw new Error("Socket.io not initialized");
+    }
+    return io;
+  },
+};
+
+
+//index.js
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const app = express();
+// const cors = require("cors");
+// app.use(cors());
+// const feedRoutes = require("./routes/feed.routes");
+// const socket = require("./socket");
+
+// app.use(express.json());
+// app.use("/feed", feedRoutes);
+// app.use(express.urlencoded({ extended: true }));
+
+// mongoose
+//   .connect("mongodb://localhost:27017/dec_batch")
+//   .then(() => {
+//     const server = app.listen(5002);
+
+//     const io = socket.init(server);
+
+//     io.on("connection", (socket) => {
+//       console.log("client connected");
+
+//       socket.emit('reply', {message: 'hello from server'})
+
+//       socket.on("disconnect", () => {
+//         console.log("client disconnected");
+//       });
+
+//       socket.on("talking", (data) => {
+//         console.log(data);
+//       });
+
+
+//     });
+
+//     app.listen(5001, () => {
+//       console.log("server is running on port 5001");
+//     });
+//   })
+//   .catch((err) => console.log(err));
