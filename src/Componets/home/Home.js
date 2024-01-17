@@ -89,7 +89,7 @@ function Home() {
      
         <div className='col-sm-12 col-md-12 col-lg-6'>
           <div className='card-style'>
-          <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Updated Hits item</h2>
+          <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Updated Hits</h2>
             <ReactApexChart
               className="chart-container"
               options={chartData.options}
@@ -103,7 +103,7 @@ function Home() {
 
         <div className='col-sm-12 col-md-12 col-lg-6'>
         <div className='card-style'>
-        <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Perfomance</h2>
+        <h2 style={{marginLeft:"20px"}} className='tm-block-title'>Perfomances</h2>
           <Perfomance />
           </div>
         </div>
